@@ -16,5 +16,6 @@ docker build \
     --build-arg VERSION=$VERSION \
     -t $IMAGE_NAME .
 
+docker push $IMAGE_NAME
 docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION
 docker push $DOCKER_REPO:$VERSION
