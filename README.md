@@ -6,6 +6,15 @@
 
 ## [Docker Compose](https://docs.docker.com/compose/)
 
+```shell
+SYNC_USER=1000
+SYNC_GROUP=1000
+SYNC_CONF=$(pwd)/config
+SYNC_DATA=$(pwd)/data
+sudo mkdir $SYNC_DATA $SYNC_CONF
+sudo chown $SYNC_USER:$SYNC_GROUP $SYNC_DATA $SYNC_CONF
+```
+
 ```yml
 version: "2"
 services:
@@ -29,6 +38,10 @@ services:
       - ./data:/mnt:ro
     links:
       - syncthing
+```
+
+```shell
+docker-compose up -d
 ```
 
 ## License
