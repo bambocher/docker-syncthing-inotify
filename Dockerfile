@@ -14,7 +14,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 ENV URL=github.com/syncthing/syncthing-inotify \
     GOPATH=/ \
     XDG_CONFIG_HOME=/ \
-    BUILD="curl jq go godep git"
+    BUILD="go godep git"
 
 RUN apk --no-cache add ca-certificates $BUILD && \
     git clone -b $VERSION https://$URL /src/$URL && \
