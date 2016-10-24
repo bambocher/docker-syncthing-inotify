@@ -14,10 +14,7 @@ docker build \
     --build-arg BUILD_DATE=$BUILD_DATE \
     --build-arg VCS_REF=$VCS_REF \
     --build-arg VERSION=$VERSION \
-    -t $IMAGE_NAME:latest .
+    -t $IMAGE_NAME .
 
-docker build \
-    --build-arg BUILD_DATE=$BUILD_DATE \
-    --build-arg VCS_REF=$VCS_REF \
-    --build-arg VERSION=$VERSION \
-    -t $IMAGE_NAME:$VERSION .
+docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION
+docker push $DOCKER_REPO:$VERSION
