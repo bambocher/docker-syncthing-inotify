@@ -6,9 +6,11 @@ ARG VCS_REF
 ARG VERSION
 
 LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-type=Git \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.vcs-url="https://github.com/bambocher/docker-syncthing-inotify" \
       org.label-schema.version=$VERSION \
+      org.label-schema.license=MIT \
       org.label-schema.schema-version="1.0"
 
 ENV URL=github.com/syncthing/syncthing-inotify \
