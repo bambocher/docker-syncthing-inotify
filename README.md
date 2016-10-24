@@ -15,6 +15,10 @@ sudo mkdir $SYNC_DATA $SYNC_CONF
 sudo chown $SYNC_USER:$SYNC_GROUP $SYNC_DATA $SYNC_CONF
 ```
 
+```shell
+vi docker-compose.yml
+```
+
 ```yml
 version: "2"
 services:
