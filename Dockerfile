@@ -1,22 +1,18 @@
 FROM alpine:3.4
 MAINTAINER Dmitry Prazdnichnov <dp@bambucha.org>
 
-ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
-
-LABEL org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.vcs-type=Git \
-      org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/bambocher/docker-syncthing-inotify" \
-      org.label-schema.version=$VERSION \
-      org.label-schema.license=MIT \
-      org.label-schema.schema-version="1.0"
 
 ENV URL=github.com/syncthing/syncthing-inotify \
     GOPATH=/ \
     XDG_CONFIG_HOME=/ \
     BUILD="go godep git"
+
+LABEL org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.version=$VERSION \
+      org.label-schema.license=MIT \
+      org.label-schema.schema-version="1.0"
 
 RUN apk --no-cache add ca-certificates $BUILD && \
     git clone -b v$VERSION https://$URL /src/$URL && \

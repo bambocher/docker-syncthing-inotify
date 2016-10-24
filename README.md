@@ -1,8 +1,10 @@
-# Alpine Syncthing Inotify Docker Container
+# Syncthing Inotify Docker Image
 
-[![Version](https://images.microbadger.com/badges/version/bambucha/syncthing-inotify.svg)](https://microbadger.com/images/bambucha/syncthing-inotify) [![Layers](https://images.microbadger.com/badges/image/bambucha/syncthing-inotify.svg)](https://microbadger.com/images/bambucha/syncthing-inotify/) [![](https://images.microbadger.com/badges/commit/bambucha/syncthing-inotify.svg)](https://microbadger.com/images/bambucha/syncthing-inotify) [![Docker Stars](https://img.shields.io/docker/stars/bambucha/syncthing-inotify.svg)](https://registry.hub.docker.com/u/bambucha/syncthing-inotify/) [![Docker Pulls](https://img.shields.io/docker/pulls/bambucha/syncthing-inotify.svg)](https://registry.hub.docker.com/u/bambucha/syncthing-inotify/) [![Docker Automated Build](https://img.shields.io/badge/automated-build-green.svg)](https://registry.hub.docker.com/u/bambucha/syncthing-inotify/) [![License](https://images.microbadger.com/badges/license/bambucha/syncthing-inotify.svg)](https://microbadger.com/images/bambucha/syncthing-inotify)
+[![Version](https://images.microbadger.com/badges/version/bambucha/syncthing-inotify.svg)](https://microbadger.com/images/bambucha/syncthing-inotify) [![Layers](https://images.microbadger.com/badges/image/bambucha/syncthing-inotify.svg)](https://microbadger.com/images/bambucha/syncthing-inotify/) [![Commit](https://images.microbadger.com/badges/commit/bambucha/syncthing-inotify.svg)](https://microbadger.com/images/bambucha/syncthing-inotify) [![License](https://images.microbadger.com/badges/license/bambucha/syncthing-inotify.svg)](https://microbadger.com/images/bambucha/syncthing-inotify) [![Docker Pulls](https://img.shields.io/docker/pulls/bambucha/syncthing-inotify.svg)](https://registry.hub.docker.com/u/bambucha/syncthing-inotify/) [![Docker Automated Build](https://img.shields.io/docker/automated/bambucha/syncthing-inotify.svg)](https://registry.hub.docker.com/u/bambucha/syncthing-inotify/)
 
-## Usage
+[Syncthing](https://github.com/syncthing/syncthing/) [Inotify](https://github.com/syncthing/syncthing-inotify/) [Docker](https://docker.com/) image based on [Alpine](https://alpinelinux.org/) Linux.
+
+## [Docker Compose](https://docs.docker.com/compose/)
 
 ```yml
 version: "2"
