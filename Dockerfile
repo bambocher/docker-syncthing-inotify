@@ -7,9 +7,11 @@ ARG VERSION
 ENV URL=github.com/syncthing/syncthing-inotify \
     GOPATH=/ \
     XDG_CONFIG_HOME=/ \
-    BUILD="go godep git"
+    BUILD="go godep git" \
+    VCS_URL=https://github.com/bambocher/docker-syncthing-inotify
 
 LABEL org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.vcs-url=$VCS_URL \
       org.label-schema.version=$VERSION \
       org.label-schema.license=MIT \
       org.label-schema.schema-version="1.0"
