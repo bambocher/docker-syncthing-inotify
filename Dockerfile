@@ -19,7 +19,7 @@ ENV URL=github.com/syncthing/syncthing-inotify \
     BUILD="go godep git"
 
 RUN apk --no-cache add ca-certificates $BUILD && \
-    git clone -b $VERSION https://$URL /src/$URL && \
+    git clone -b v$VERSION https://$URL /src/$URL && \
     cd /src/$URL && \
     godep get && \
     rm -rf /src /pkg && \
