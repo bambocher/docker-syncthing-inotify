@@ -23,7 +23,7 @@ RUN apk --no-cache add ca-certificates $BUILD && \
     rm -rf /src /pkg && \
     apk del $BUILD
 
-COPY entrypoint.sh /entrypoint.sh
+COPY ./entrypoint.sh /
 
 USER 1000:1000
 VOLUME ["/syncthing", "/mnt"]
