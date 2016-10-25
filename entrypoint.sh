@@ -3,7 +3,7 @@
 echo [OK] Waiting for http://syncthing:8384
 
 timeout ash <<EOT
-while ! (wget -qs -T 1 -O- http://syncthing:8384) >/dev/null 2>&1; do
+while ! (curl -sm1 http://syncthing:8384) >/dev/null 2>&1; do
     sleep 1;
 done;
 EOT

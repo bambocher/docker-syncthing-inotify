@@ -16,7 +16,7 @@ LABEL org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.license=MIT \
       org.label-schema.schema-version="1.0"
 
-RUN apk --no-cache add ca-certificates $BUILD && \
+RUN apk --no-cache add ca-certificates curl $BUILD && \
     git clone -b v$VERSION https://$URL /src/$URL && \
     cd /src/$URL && \
     godep get && \
