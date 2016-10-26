@@ -1,27 +1,28 @@
 FROM alpine:3.4
 MAINTAINER Dmitry Prazdnichnov <dp@bambucha.org>
 
-ARG VCS_REF
+ARG BUILD_DATE
 ARG VERSION
+ARG VCS_REF
+
+LABEL org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.version=$VERSION \
+      org.label-schema.vcs-url=https://github.com/bambocher/docker-syncthing-inotify \
+      org.label-schema.license=MIT \
+      org.label-schema.schema-version=1.0
 
 ENV URL=github.com/syncthing/syncthing-inotify \
-    GOPATH=/ \
     XDG_CONFIG_HOME=/ \
-    BUILD="go godep git" \
-    VCS_URL=https://github.com/bambocher/docker-syncthing-inotify
+    GOPATH=/
 
-LABEL org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url=$VCS_URL \
-      org.label-schema.version=$VERSION \
-      org.label-schema.license=MIT \
-      org.label-schema.schema-version="1.0"
-
-RUN apk --no-cache add ca-certificates curl $BUILD && \
-    git clone -b v$VERSION https://$URL /src/$URL && \
-    cd /src/$URL && \
-    godep get && \
-    rm -rf /src /pkg && \
-    apk del $BUILD
+RUN apk --no-cache add ca-certificates curl \
+    && apk --no-cache --virtual build-dependencies add go godep git \
+    && git clone -b v$VERSION https://$URL /src/$URL \
+    && cd /src/$URL \
+    && godep get \
+    && rm -rf /src /pkg \
+    apk del build-dependencies
 
 COPY ./entrypoint.sh /
 
