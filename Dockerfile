@@ -17,7 +17,7 @@ ENV URL=github.com/syncthing/syncthing-inotify \
     GOPATH=/
 
 RUN apk --no-cache add ca-certificates curl \
-    && apk --no-cache --virtual build-dependencies add go godep git \
+    && apk --no-cache --virtual build-dependencies add go godep git libc-dev \
     && git clone -b v$VERSION https://$URL /src/$URL \
     && cd /src/$URL \
     && godep get \
