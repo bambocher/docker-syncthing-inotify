@@ -23,7 +23,7 @@ RUN apk --no-cache add ca-certificates curl \
     && godep get \
     && cd / \
     && rm -rf /src /pkg \
-    apk del build-dependencies
+    && apk del build-dependencies
 
 COPY ./entrypoint.sh /
 
