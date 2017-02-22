@@ -6,19 +6,24 @@ ARG VERSION
 ARG VCS_REF
 
 LABEL org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.version=$VERSION \
       org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.version=$VERSION \
       org.label-schema.vcs-url=https://github.com/bambocher/docker-syncthing-inotify \
       org.label-schema.license=MIT \
       org.label-schema.schema-version=1.0
 
-ENV URL=https://github.com/syncthing/syncthing-inotify/releases/download \
+ENV URL=github.com/syncthing/syncthing-inotify \
     XDG_CONFIG_HOME=/ \
-    HOME=/mnt
+    GOPATH=/
 
 RUN apk --no-cache add ca-certificates curl \
-    && curl -sL $URL/v$VERSION/syncthing-inotify-linux-amd64-v$VERSION.tar.gz \
-        | tar xz -C /usr/bin
+    && apk --no-cache --virtual build-dependencies add go godep git libc-dev \
+    && git clone -b v$VERSION https://$URL /src/$URL \
+    && cd /src/$URL \
+    && godep get \
+    && cd / \
+    && rm -rf /src /pkg \
+    apk del build-dependencies
 
 COPY ./entrypoint.sh /
 
