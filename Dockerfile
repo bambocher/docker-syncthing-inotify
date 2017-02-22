@@ -17,10 +17,8 @@ ENV URL=https://github.com/syncthing/syncthing-inotify/releases/download \
     HOME=/mnt
 
 RUN apk --no-cache add ca-certificates curl \
-    && apk --no-cache --virtual build-dependencies add tar \
     && curl -sL $URL/v$VERSION/syncthing-inotify-linux-amd64-v$VERSION.tar.gz \
-        | tar xz --no-anchored -C /usr/bin --strip-components=1 syncthing-inotify \
-    && apk del build-dependencies
+        | tar xz -C /usr/bin
 
 COPY ./entrypoint.sh /
 
