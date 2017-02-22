@@ -2,7 +2,7 @@
 
 VERSION=`git ls-remote -t https://github.com/syncthing/syncthing-inotify \
     | grep -o 'v[0-9\.]*' \
-    | sort -ubt . -k 1,1nr -k 2,2nr -k 3,3r -k 4,4r -k 5,5r \
+    | sort -ubt . -k 1,1nr -k 2,2nr -k 3,3nr \
     | head -n 1 \
     | grep -o '[0-9\.]*'`
 
